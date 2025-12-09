@@ -48,6 +48,8 @@ export type ContentSection = {
 
 export type EventStatus = "upcoming" | "past";
 
+export type SectionKey = "highlights" | "description" | "agenda" | "sections" | "tables" | "registration";
+
 export type FormField = {
   name: string;
   label: string;
@@ -101,4 +103,6 @@ export type Event = {
 
   teamsUrl?: string;
   googleMeetUrl?: string;
+
+  sectionOrder?: SectionKey[];
 };

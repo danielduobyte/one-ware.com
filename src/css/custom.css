@@ -230,3 +230,90 @@ body {
 .theme-doc-sidebar-menu .menu__list {
   padding-left: 2rem;
 }
+
+/* ===== Roboflow-Style Dropdown Menu ===== */
+
+/* Dropdown Menu Container */
+.dropdown__menu {
+  width: 280px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Dropdown Links with Icons */
+.dropdown__link {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px !important;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  margin: 2px 0;
+}
+
+.dropdown__link:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Icon Styling */
+.dropdown__link-icon {
+  width: 20px;
+  height: 20px;
+  color: inherit;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+/* Highlighted Links (Product Headers) */
+.dropdown__link--highlight {
+  font-weight: 600 !important;
+  color: var(--ifm-color-primary) !important;
+  margin-top: 8px;
+}
+
+.dropdown__link--highlight:first-child {
+  margin-top: 0;
+}
+
+.dropdown__link--highlight .dropdown__link-icon {
+  color: var(--ifm-color-primary);
+}
+
+/* Remove default list styling */
+.dropdown__menu li {
+  list-style: none;
+}
+
+/* Category Label (e.g. "Features") */
+.dropdown__label {
+  padding: 12px 14px 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Homepage transparent navbar dropdown */
+[data-isindex="1"][data-scroll='0'] .dropdown__menu {
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+/* ===== Mobile Menu Icons ===== */
+.menu__link--with-icon {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu__link-icon {
+  width: 18px;
+  height: 18px;
+  color: inherit;
+  flex-shrink: 0;
+}

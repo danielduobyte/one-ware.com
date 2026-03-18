@@ -230,19 +230,18 @@ export default function HomeHero() {
                       opacity: 0,
                     }}
                   >
-                    <Translate id="homehero.title1">Let ONE AI </Translate>
+                    <Translate id="homehero.title1">Deliver Up to 20x More</Translate>
                   </span>
-                  
+
                   <span
                     className="dark:text-white text-gray-800 block"
                     style={{
                       animation: "fadeInUp 0.8s ease-out forwards",
                       animationDelay: "0.1s",
-
                       opacity: 0,
                     }}
                   >
-                    <Translate id="homehero.title2">Build Your Custom Vision AI Model</Translate>
+                    <Translate id="homehero.title2">Vision AI Projects</Translate>
                   </span>
                 </h1>
                 <div
@@ -252,7 +251,7 @@ export default function HomeHero() {
                     opacity: 0,
                   }}
                 >
-                  <Translate id="homehero.no_universal_models">From fast edge AI to medical imaging, go beyond generic models.</Translate>
+                  <Translate id="homehero.no_universal_models">Make your vision AI development predictable with production ready models in minutes</Translate>
                 </div>
                 
               </div>

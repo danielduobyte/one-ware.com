@@ -33,7 +33,7 @@ With the **Download Project** button you get the necessary files to run the mode
 
 ## About this demo
 
-This demo evaluates wildfire segmentation in drone imagery deployed on an **Intel Agilex 3 FPGA**.
+This demo evaluates wildfire segmentation in drone imagery deployed on an **Intel Agilex 3 FPGA** (ACX3000 board with an A3CY100BM16AE7S).
 
 The setup uses **128 × 128** resolution at **100 MHz** clock frequency, demonstrating real-time segmentation for autonomous drone surveillance systems where wildfire detection must happen onboard with minimal latency.
 
@@ -45,7 +45,7 @@ To evaluate FPGA deployment feasibility, we compared classical segmentation base
 
 ### The Challenge with Universal Models
 
-**UNet** produced high-quality masks but requires **322.98 GFLOPs** and **28.24M parameters**, making FPGA synthesis impractical for real-time drone applications.
+**UNet** requires **322.98 GFLOPs** and **28.24M parameters**, making FPGA synthesis impractical for real-time drone applications.
 
 **DeepLabv3+** (MobileNet backbone) reduces complexity to **17.63 GFLOPs** and **10.99M parameters**, but still exceeds typical FPGA resource budgets for embedded vision systems.
 
@@ -62,11 +62,11 @@ The resulting architecture has only **7,705  parameters** and requires just **0.
 
 ### Results
 
-| Model | Parameters | FLOPs | Avg CPU Speed | Max. FPGA Speed* |
+| Model | Parameters | GFLOPs | Avg CPU Speed | Max. FPGA Speed* |
 |-------|---------------|-----------|-----------|-------------------|
-| **ONE AI** | **0.01 M** | **0.05 G** | **~600 FPS** \*\* | **95.2 FPS** |
-| DeepLabv3+ | 10.99 M | 17.63 G | 12.7 FPS | ❌ |
-| UNet | 28.24 M | 322.98 G | 0.44 FPS | ❌ |
+| **ONE AI** | **0.01 M** | **0.05** | **~600 FPS** \*\* | **95.2 FPS** |
+| DeepLabv3+ | 10.99 M | 17.63 | 12.7 FPS | ❌ |
+| UNet | 28.24 M | 322.98 | 0.44 FPS | ❌ |
 
 **\* On Intel Agilex 3 @ 100MHz**
 
@@ -87,7 +87,7 @@ The low resource footprint enables integration with additional processing pipeli
 ## Model Configuration
 
 :::info Further Details
-A more detailed guide on how to obtain a segmentation model can be found in this [Guide](/docs/one-ai/guides/wildfire-segmentation-guide)
+A more detailed guide on how to obtain a segmentation model with ONE AI can be found in [this Guide](/docs/one-ai/guides/wildfire-segmentation-guide)
 :::
 
 The following ONE AI plugin settings were used for this FPGA-targeted wildfire segmentation pipeline.
@@ -106,9 +106,11 @@ The model uses **grayscale input** (single channel) to reduce computational comp
   <img src="/img/ai/one_ai_plugin/demos/wildfire/output_settings.png" alt="Model settings for wildfire segmentation" style={{ maxHeight: '60vh' }} />
 </div>
 
-This setup targets **real-time drone surveillance** with a single segmentation class (wildfire). 
-
 The segmentation output resolution was set to **100%** for pixel-accurate masks, while the model architecture remains compact enough for FPGA synthesis at **100 MHz** clock frequency.
+
+## Conclusion
+
+This setup targets **real-time drone surveillance** with a single segmentation class (wildfire). 
 
 FPGA deployment enables:
 - **Low latency** (< 11ms per frame at 95 FPS)

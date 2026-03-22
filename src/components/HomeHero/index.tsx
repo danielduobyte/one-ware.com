@@ -230,7 +230,7 @@ export default function HomeHero() {
                       opacity: 0,
                     }}
                   >
-                    <Translate id="homehero.title1">Deliver Up to 20x More</Translate>
+                    <Translate id="homehero.title1">Custom Vision AI</Translate>
                   </span>
 
                   <span
@@ -241,7 +241,7 @@ export default function HomeHero() {
                       opacity: 0,
                     }}
                   >
-                    <Translate id="homehero.title2">Vision AI Projects</Translate>
+                    <Translate id="homehero.title2">In &lt; 5  Minutes</Translate>
                   </span>
                 </h1>
                 <div
@@ -251,7 +251,7 @@ export default function HomeHero() {
                     opacity: 0,
                   }}
                 >
-                  <Translate id="homehero.no_universal_models">Make your vision AI development predictable with production ready models in minutes</Translate>
+                  <Translate id="homehero.no_universal_models">Turn complex ideas into production ready AI models without trial and error</Translate>
                 </div>
                 
               </div>

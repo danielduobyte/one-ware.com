@@ -346,7 +346,12 @@ export default function HomeComparisonSection() {
       <div className="mx-auto w-full max-w-[96rem] px-3 md:px-4 lg:px-3 xl:px-6">
         <div className="w-full grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_56px_minmax(0,1fr)] gap-2 xl:gap-4 items-stretch">
           <SectionCard title={<Translate id="homepage.comparison.today.title">AI Development Today</Translate>}>
-            <div className="grid grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] gap-2 md:gap-4 items-center min-h-[22rem]">
+            <div className="xl:hidden flex flex-col items-center gap-4 min-h-[22rem]">
+              <div className="flex items-center justify-center h-full w-full">
+                <TodayFlow />
+              </div>
+            </div>
+            <div className="hidden xl:grid xl:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] xl:gap-4 items-center min-h-[22rem]">
               <div className="flex items-center justify-center h-full">
                 <TodayFlow />
               </div>
@@ -359,7 +364,12 @@ export default function HomeComparisonSection() {
           <ComparisonArrow />
 
           <SectionCard title={<Translate id="homepage.comparison.oneware.title">AI Development with ONE AI</Translate>}>
-            <div className="grid grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-2 md:gap-4 items-center min-h-[22rem] pt-5">
+            <div className="xl:hidden flex flex-col items-center gap-4 min-h-[22rem]">
+              <div className="flex items-center justify-center h-full w-full">
+                <OneWareFlow />
+              </div>
+            </div>
+            <div className="hidden xl:grid xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] xl:gap-4 items-center min-h-[22rem] xl:pt-5">
               <div className="flex items-center justify-center h-full">
                 <OneWareFlow />
               </div>

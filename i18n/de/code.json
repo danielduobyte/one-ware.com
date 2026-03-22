@@ -1,21 +1,12 @@
 {
   "homehero.title1": {
-    "message": "Baue bis zu 20x mehr"
+    "message": "Custom Vision AI"
   },
   "homehero.title2": {
-    "message": "Vision AI Projekte"
+    "message": "In < 5 Minuten"
   },
   "homehero.no_universal_models": {
-    "message": "Mach deine Vision AI Entwicklung planbar mit produktionsfertigen Modellen in Minuten"
-  },
-  "homehero.custom_vision_ai": {
-    "message": "Vision-AI, genau für deine Anwendung."
-  },
-  "homehero.subtitle1": {
-    "message": "Vision und Edge AI Entwicklung,"
-  },
-  "homehero.subtitle2": {
-    "message": "Automatisiert in einer Software"
+    "message": "Komplexe Ideen in produktionsfertige KI-Modelle umwandeln \u2013 ohne Trial & Error"
   },
   "homehero.button.download": {
     "message": "Get Started"

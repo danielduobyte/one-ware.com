@@ -15,6 +15,7 @@ import ContactUs from "../components/ContactUs";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Head from "@docusaurus/Head";
 import HomeHero from "@site/src/components/HomeHero";
+import HomeComparisonSection from "@site/src/components/HomeComparisonSection";
 import VideoShowcase from "@site/src/components/VideoShowcase";
 import OrbitIndustries from "@site/src/components/OrbitIndustries";
 
@@ -347,6 +348,7 @@ export default function Home() {
       <HomeHero />
       <main className="overflow-x-hidden alternative-background ">
         <div className="default-background pb-12">
+          <HomeComparisonSection />
           <div id="video">
             <VideoShowcase />
           </div>

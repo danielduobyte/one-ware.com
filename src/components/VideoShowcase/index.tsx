@@ -18,7 +18,6 @@ const defaultDemos: ShowcaseItem[] = [
     title: "High Speed Image Classification",
     video: "/img/demos/chip.webm",
     image: "/img/ai/one_ai_plugin/use_cases/chip/defect.png",
-    architecture: "/img/demos/architecture/architecture_chip.png",
     link: "https://cloud.one-ware.com/quick-start",
     metrics: {
       left: { value: 24, unit: " x", label: "Less Errors vs Universal AI" },
@@ -30,7 +29,6 @@ const defaultDemos: ShowcaseItem[] = [
     title: "Video Object Detection",
     video: "/img/demos/drone.webm",
     image: "/img/demos/compare.jpg",
-    architecture: "/img/demos/architecture/architecture_drones.png",
     link: "/docs/one-ai/use-cases/difference-detection",
     metrics: {
       left: { value: 10, unit: " x", label: "Less Errors vs YOLOv8" },
@@ -41,7 +39,6 @@ const defaultDemos: ShowcaseItem[] = [
   {
     title: "Image Comparison AI",
     image: "/img/ai/one_ai_plugin/use_cases/pcb/pcb.png",
-    architecture: "/img/demos/architecture/architecture_pcb.png",
     link: "/docs/one-ai/use-cases/pcb",
     metrics: {
       left: { value: 6.4, unit: " x", label: "Less Errors vs Image Processing" },
@@ -53,7 +50,6 @@ const defaultDemos: ShowcaseItem[] = [
     title: "Detect Tiny Objects",
     video: "/img/demos/tennis_demo.webm",
     image: "/img/demos/tennis_demo.webp",
-    architecture: "/img/demos/architecture/architecture_drones.png",
     link: "/docs/one-ai/demos/tennis-ball-demo",
     metrics: {
       left: { value: 20, unit: " %", label: "More Detections" },
@@ -74,13 +70,14 @@ const defaultDemos: ShowcaseItem[] = [
   },
   
   {
-    title: "All-in-ONE Quality Control",
-    image: "/img/ai/one_ai_plugin/use_cases/capture/preview.png",
-    link: "/docs/one-ai/use-cases/camera-tool",
+    title: "High Speed Segmentation",
+    video: "/img/demos/scratches_demo.webm",
+    image: "/img/demos/screenshot_scratch.png",
+    link: "/docs/one-ai/demos/keychain-scratch-demo",
     metrics: {
       left: { value: 1, unit: "-Click", label: "Deployment", startValue: 50 },
-      center: { value: "Any" as const, label: "AI Model" },
-      right: { value: 1, unit: " Day", label: "Development Time", startValue: 300, prefix: "<" },
+      center: { value: "Balanced" as const, label: "AI Model" },
+      right: { value: 9.2, unit: " x", label: " Less Parameters vs YOLO26n"},
     },
   },
   

@@ -200,6 +200,27 @@
   "homepage.metric.speed": {
     "message": "Geschwindigkeitssteigerung"
   },
+  "homepage.comparison.today.title": {
+    "message": "KI-Entwicklung heute"
+  },
+  "homepage.comparison.today.step1": {
+    "message": "Allgemeines Modell auswählen"
+  },
+  "homepage.comparison.today.step2": {
+    "message": "Verschiedene Optimierungen ausprobieren"
+  },
+  "homepage.comparison.today.step3": {
+    "message": "Deployen und testen"
+  },
+  "homepage.comparison.oneware.title": {
+    "message": "KI-Entwicklung mit ONE AI"
+  },
+  "homepage.comparison.oneware.step1": {
+    "message": "ONE AI erstellt dein individuelles KI-Modell"
+  },
+  "homepage.comparison.oneware.step2": {
+    "message": "Funktionierendes Produkt"
+  },
 
   "partners.title": {
     "message": "Bekannt von:"

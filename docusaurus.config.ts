@@ -96,7 +96,7 @@ const config: Config = {
           },
           {
             from: '/projects/wildfire',
-            to: '/docs/one-ai/demos/wildfire-segmentation-demo',
+            to: '/docs/one-ai/guides/wildfire-segmentation-guide',
           },
           {
             from: '/projects/scratches',

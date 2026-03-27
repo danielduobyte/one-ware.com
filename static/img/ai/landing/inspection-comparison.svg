@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0d14"/>
+      <stop offset="100%" stop-color="#08080e"/>
+    </linearGradient>
+    <linearGradient id="mt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8a8a95"/>
+      <stop offset="50%" stop-color="#6e6e78"/>
+      <stop offset="100%" stop-color="#58585f"/>
+    </linearGradient>
+    <linearGradient id="mtd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#707078"/>
+      <stop offset="100%" stop-color="#45454c"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2a32"/>
+      <stop offset="100%" stop-color="#1f1f26"/>
+    </linearGradient>
+    <radialGradient id="goodApple" cx="0.4" cy="0.35" r="0.6">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </radialGradient>
+    <radialGradient id="badApple" cx="0.4" cy="0.35" r="0.6">
+      <stop offset="0%" stop-color="#c44a3a"/>
+      <stop offset="50%" stop-color="#8b3a2a"/>
+      <stop offset="100%" stop-color="#5a2a1a"/>
+    </radialGradient>
+    <filter id="sh"><feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/></filter>
+    <filter id="ss"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#fff" stroke-opacity="0.02"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#fff" stroke-opacity="0.02"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#fff" stroke-opacity="0.02"/>
+  <line x1="200" y1="0" x2="200" y2="600" stroke="#fff" stroke-opacity="0.02"/>
+  <line x1="400" y1="0" x2="400" y2="600" stroke="#fff" stroke-opacity="0.02"/>
+  <line x1="600" y1="0" x2="600" y2="600" stroke="#fff" stroke-opacity="0.02"/>
+  <rect x="30" y="60" width="340" height="480" rx="8" fill="#0e0e16" stroke="#1e1e28" stroke-width="0.5"/>
+  <rect x="430" y="60" width="340" height="480" rx="8" fill="#0e0e16" stroke="#1e1e28" stroke-width="0.5"/>
+  <text x="200" y="100" font-family="monospace" font-size="11" fill="#3a6a3a" text-anchor="middle">GRADE: A — PASS</text>
+  <text x="600" y="100" font-family="monospace" font-size="11" fill="#8a3a3a" text-anchor="middle">GRADE: F — REJECT</text>
+  <g filter="url(#sh)" transform="translate(200, 310)">
+    <ellipse cx="0" cy="0" rx="95" ry="90" fill="url(#goodApple)"/>
+    <ellipse cx="-20" cy="-25" rx="35" ry="25" fill="#fff" fill-opacity="0.1"/>
+    <ellipse cx="-10" cy="-15" rx="15" ry="10" fill="#fff" fill-opacity="0.06"/>
+    <line x1="0" y1="-90" x2="4" y2="-112" stroke="#5a3a1a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M6,-106 Q28,-122 32,-100" fill="#3a7a3a" fill-opacity="0.85" stroke="none"/>
+    <path d="M-4,-106 Q-22,-118 -26,-100" fill="#2a6a2a" fill-opacity="0.6" stroke="none"/>
+    <path d="M0,88 Q0,92 0,90" stroke="none"/>
+    <ellipse cx="0" cy="85" rx="12" ry="5" fill="#7a1a1a" fill-opacity="0.3"/>
+  </g>
+  <g filter="url(#sh)" transform="translate(600, 310)">
+    <ellipse cx="0" cy="0" rx="95" ry="90" fill="url(#badApple)"/>
+    <ellipse cx="-20" cy="-25" rx="30" ry="20" fill="#fff" fill-opacity="0.05"/>
+    <ellipse cx="25" cy="15" rx="28" ry="22" fill="#2a0f05" fill-opacity="0.7"/>
+    <ellipse cx="28" cy="18" rx="16" ry="12" fill="#1a0a02" fill-opacity="0.6"/>
+    <ellipse cx="-30" cy="30" rx="18" ry="14" fill="#2a0f05" fill-opacity="0.5"/>
+    <ellipse cx="-32" cy="32" rx="10" ry="7" fill="#1a0a02" fill-opacity="0.4"/>
+    <ellipse cx="10" cy="-40" rx="12" ry="8" fill="#3a1a0a" fill-opacity="0.4"/>
+    <line x1="-35" y1="-20" x2="-15" y2="-5" stroke="#4a1a0a" stroke-width="1.5" stroke-opacity="0.5"/>
+    <line x1="40" y1="-30" x2="55" y2="-15" stroke="#4a1a0a" stroke-width="1" stroke-opacity="0.4"/>
+    <line x1="-50" y1="5" x2="-35" y2="15" stroke="#4a1a0a" stroke-width="1" stroke-opacity="0.3"/>
+    <line x1="0" y1="-90" x2="4" y2="-112" stroke="#5a3a1a" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="0" cy="85" rx="14" ry="6" fill="#3a1a0a" fill-opacity="0.4"/>
+  </g>
+  <line x1="400" y1="40" x2="400" y2="560" stroke="#fff" stroke-opacity="0.06" stroke-width="1" stroke-dasharray="8 4"/>
+</svg>

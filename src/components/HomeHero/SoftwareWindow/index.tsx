@@ -6,6 +6,7 @@ import CameraStation from "./CameraStation";
 import TopMetrics from "./TopMetrics";
 import TrainingProgressOverlay from "./TrainingProgressOverlay";
 import DeployView from "./DeployView";
+import ConfigurationSteps from "./ConfigurationSteps";
 import { usePerformance } from "../index";
 import { useDelayedUnmount } from '../hooks/useDelayedUnmount';
 
@@ -137,6 +138,8 @@ export default function SoftwareWindow({
 
   const [isCollapsingToCore, setIsCollapsingToCore] = useState(false);
   const [isRetrainingScan, setIsRetrainingScan] = useState(false);
+  const [isConfigPhase, setIsConfigPhase] = useState(false);
+  const [configComplete, setConfigComplete] = useState(false);
   const [animateHardwareSwitch, setAnimateHardwareSwitch] = useState(false);
   const [isRebuildingBase, setIsRebuildingBase] = useState(false);
   const [isRetrainingPurple, setIsRetrainingPurple] = useState(false);
@@ -189,7 +192,7 @@ export default function SoftwareWindow({
   const cameraStationVisible = isFinalLayout && !(isRetraining || isResettingModel || isRetrainingAnalysis || isCollapsingToCore || isRebuildingBase || isRetrainingPurple);
   const shouldRenderCameraStation = useDelayedUnmount(cameraStationVisible, 300);
 
-  const trainingPanelVisible = !((isFinalLayout && !isRetrainingAnalysis) || isResettingModel || isCollapsingToCore);
+  const trainingPanelVisible = !((isFinalLayout && !isRetrainingAnalysis) || isResettingModel || isCollapsingToCore || (hasTrainingData && !configComplete && !hasRetrained));
   const shouldRenderTrainingPanel = useDelayedUnmount(trainingPanelVisible, 800);
 
   const handleHeaderMouseDown = (e: React.MouseEvent) => {
@@ -464,6 +467,8 @@ export default function SoftwareWindow({
       setIsRetrainingPurple(false);
       setRetrainedPrecision(false);
       setTrainingColor('orange');
+      setIsConfigPhase(false);
+      setConfigComplete(false);
       setScanCompleted(false);
       setCollapseCompleted(false);
       if (pendingRetrainTimer) {
@@ -476,7 +481,21 @@ export default function SoftwareWindow({
   }, [hasTrainingData]);
 
   useEffect(() => {
-    if (hasTrainingData && !hasRetrained && !isRetrainingAnalysis) {
+    if (hasTrainingData && !hasRetrained && !isRetrainingAnalysis && !configComplete) {
+        const configTimer = setTimeout(() => {
+            setIsConfigPhase(true);
+        }, 300);
+        return () => clearTimeout(configTimer);
+    }
+  }, [hasTrainingData, hasRetrained, isRetrainingAnalysis, configComplete]);
+
+  const handleConfigComplete = useCallback(() => {
+    setIsConfigPhase(false);
+    setConfigComplete(true);
+  }, []);
+
+  useEffect(() => {
+    if (configComplete && !hasRetrained && !isRetrainingAnalysis) {
         const setupTimer = setTimeout(() => {
             setAnimateSetup(true);
         }, 500);
@@ -488,7 +507,7 @@ export default function SoftwareWindow({
             clearTimeout(analysisTimer);
         };
     }
-  }, [hasTrainingData, hasRetrained, isRetrainingAnalysis]);
+  }, [configComplete, hasRetrained, isRetrainingAnalysis]);
 
   useEffect(() => {
     if (startAnalysis && !hasProgressBarStarted && !isRetrainingAnalysis) {
@@ -597,6 +616,23 @@ export default function SoftwareWindow({
                transition: "all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)"
              }}
         >
+             {isConfigPhase && (
+             <div
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    zIndex: 25,
+                }}
+             >
+                 <ConfigurationSteps
+                   isActive={isConfigPhase}
+                   onComplete={handleConfigComplete}
+                   isCompact={isCompact}
+                   isSmallScreen={isSmallScreen}
+                 />
+             </div>
+             )}
+
              {shouldRenderCameraStation && (
              <div
                 style={{
@@ -622,7 +658,7 @@ export default function SoftwareWindow({
              </div>
              )}
 
-                          {shouldRenderTrainingPanel && (
+                          {shouldRenderTrainingPanel && !(hasTrainingData && !configComplete && !hasRetrained) && (
                           <div
                              ref={setTrainingPanelRef}
                              style={{

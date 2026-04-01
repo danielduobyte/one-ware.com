@@ -154,19 +154,11 @@ export default function ConfigurationSteps({
       await delay(STEP_PAUSE);
       if (abortRef.current) return;
 
-      await clickButton('config-input-video', (v) => setSelectedInputType(v), 'video');
-      await delay(STEP_PAUSE);
-      if (abortRef.current) return;
-
-      await clickButton('config-input-depth', (v) => setSelectedInputType(v), 'depth');
+      await clickButton('config-input-image', (v) => setSelectedInputType(v), 'image');
       await delay(STEP_PAUSE);
       if (abortRef.current) return;
 
       await clickButton('config-task-detection', (v) => setSelectedTaskType(v), 'detection');
-      await delay(STEP_PAUSE);
-      if (abortRef.current) return;
-
-      await clickButton('config-task-segmentation', (v) => setSelectedTaskType(v), 'segmentation');
       setCursorVisible(false);
 
       await delay(3000);

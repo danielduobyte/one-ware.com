@@ -82,6 +82,7 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<Record<string, HTMLImageElement>>({});
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [renderSize, setRenderSize] = useState({ width: 1, height: 1 });
 
   useEffect(() => {
     Object.entries(SVG_MAP).forEach(([key, src]) => {
@@ -103,11 +104,27 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
 
     const displayW = canvas.width;
     const displayH = canvas.height;
+    const imageAspect = img.width / img.height;
+    const canvasAspect = displayW / displayH;
+
+    let srcX = 0;
+    let srcY = 0;
+    let srcW = img.width;
+    let srcH = img.height;
+
+    // Match CSS object-fit: cover by cropping the source image instead of stretching it.
+    if (imageAspect > canvasAspect) {
+      srcW = img.height * canvasAspect;
+      srcX = (img.width - srcW) / 2;
+    } else {
+      srcH = img.width / canvasAspect;
+      srcY = (img.height - srcH) / 2;
+    }
 
     if (scale >= 0.95) {
       ctx.imageSmoothingEnabled = true;
       ctx.clearRect(0, 0, displayW, displayH);
-      ctx.drawImage(img, 0, 0, displayW, displayH);
+      ctx.drawImage(img, srcX, srcY, srcW, srcH, 0, 0, displayW, displayH);
       return;
     }
 
@@ -120,7 +137,7 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
     const offCtx = offscreen.getContext('2d');
     if (!offCtx) return;
 
-    offCtx.drawImage(img, 0, 0, smallW, smallH);
+    offCtx.drawImage(img, srcX, srcY, srcW, srcH, 0, 0, smallW, smallH);
     ctx.imageSmoothingEnabled = false;
     ctx.clearRect(0, 0, displayW, displayH);
     ctx.drawImage(offscreen, 0, 0, smallW, smallH, 0, 0, displayW, displayH);
@@ -139,6 +156,7 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
     if (rect) {
       canvas.width = Math.floor(rect.width * (window.devicePixelRatio || 1));
       canvas.height = Math.floor(rect.height * (window.devicePixelRatio || 1));
+      setRenderSize({ width: rect.width, height: rect.height });
     }
 
     drawPixelated(currentImg, resolutionScale);
@@ -154,6 +172,7 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
       if (rect) {
         canvas.width = Math.floor(rect.width * (window.devicePixelRatio || 1));
         canvas.height = Math.floor(rect.height * (window.devicePixelRatio || 1));
+        setRenderSize({ width: rect.width, height: rect.height });
       }
       drawPixelated(currentImg, resolutionScale);
     });
@@ -168,6 +187,25 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
 
   const boxes = BOUNDING_BOXES[currentKey] || BOUNDING_BOXES.image;
   const segGroups = SEGMENTATION_GROUPS[currentKey] || SEGMENTATION_GROUPS.image;
+
+  const overlayViewBox = (() => {
+    if (!currentImg || renderSize.width <= 0 || renderSize.height <= 0) {
+      return '0 0 100 100';
+    }
+
+    const imageAspect = currentImg.width / currentImg.height;
+    const canvasAspect = renderSize.width / renderSize.height;
+
+    if (imageAspect > canvasAspect) {
+      const visibleWidth = (canvasAspect / imageAspect) * 100;
+      const offsetX = (100 - visibleWidth) / 2;
+      return `${offsetX} 0 ${visibleWidth} 100`;
+    }
+
+    const visibleHeight = (imageAspect / canvasAspect) * 100;
+    const offsetY = (100 - visibleHeight) / 2;
+    return `0 ${offsetY} 100 ${visibleHeight}`;
+  })();
 
   return (
     <div
@@ -254,7 +292,7 @@ export default function PreviewPanel({ resolution, inputType, taskType, isActive
           </div>
         )}
 
-        {taskType && <TaskOverlay taskType={taskType} boxes={boxes} segGroups={segGroups} inputType={inputType} />}
+        {taskType && <TaskOverlay taskType={taskType} boxes={boxes} segGroups={segGroups} inputType={inputType} viewBox={overlayViewBox} />}
 
       </div>
     </div>
@@ -266,9 +304,10 @@ interface TaskOverlayProps {
   boxes: typeof BOUNDING_BOXES.image;
   segGroups: typeof SEGMENTATION_GROUPS.image;
   inputType: string | null;
+  viewBox: string;
 }
 
-function TaskOverlay({ taskType, boxes, segGroups, inputType }: TaskOverlayProps) {
+function TaskOverlay({ taskType, boxes, segGroups, inputType, viewBox }: TaskOverlayProps) {
   if (taskType === 'classification') {
     return null;
   }
@@ -276,7 +315,7 @@ function TaskOverlay({ taskType, boxes, segGroups, inputType }: TaskOverlayProps
   if (taskType === 'detection') {
     return (
       <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-        viewBox="0 0 100 100" preserveAspectRatio="none">
+        viewBox={viewBox} preserveAspectRatio="none">
         {boxes.map((box, i) => (
           <g key={i}>
             <rect x={box.x} y={box.y} width={box.w} height={box.h}
@@ -291,7 +330,7 @@ function TaskOverlay({ taskType, boxes, segGroups, inputType }: TaskOverlayProps
   if (taskType === 'segmentation') {
     return (
       <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-        viewBox="0 0 100 100" preserveAspectRatio="none">
+        viewBox={viewBox} preserveAspectRatio="none">
         {segGroups.map((group, i) => (
           <g key={i} style={{ opacity: 0, animation: `fadeIn 0.4s ease-out ${i * 150}ms forwards` }}>
             <path d={group.d}

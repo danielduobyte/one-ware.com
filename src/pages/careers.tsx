@@ -4,6 +4,7 @@ import Translate, { translate } from "@docusaurus/Translate";
 import { useLocation, useHistory } from "@docusaurus/router";
 import { ACTIVE_JOBS, getJobById } from "../data/jobsData";
 import { EMPLOYEE_STORIES } from "../data/employeeStories";
+import { FEATURED_IN } from "../data/featuredIn";
 import NeuralNetworkSimple from "../components/NeuralNetworkSimple";
 import JobDetailPage from "../components/JobDetailPage";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
@@ -178,14 +179,6 @@ export default function CareersPage(): JSX.Element {
       position: "Working Student - Marketing",
       imageSrc: require("@site/static/img/AboutUs/default.png").default,
     },
-  ]
-
-  const featuredIn = [
-    { key: "1", imageSrc: require("@site/static/img/Featured/f1_g.png").default, url: "https://tech.eu/2025/06/18/one-ware-raises-eur25m-to-automate-ai-model-configuration-across-industries/" },
-    { key: "3", imageSrc: require("@site/static/img/Featured/f4_g.png").default, url: "https://www.elektronikpraxis.de/one-ai-automatisierte-ki-konfiguration-fuer-entwickler-a-09fee486cec031ed0a2edd5dbeeaed0a/" },
-    { key: "6", imageSrc: require("@site/static/img/Featured/f9_g.png").default, url: "https://www.vdi-nachrichten.com/technik/automation/ki-im-maschinenbau-auf-bestehender-hardware-nutzen/" },
-    { key: "7", imageSrc: require("@site/static/img/Featured/f10_g.png").default, url: "https://www.elektormagazine.com/news/one-ai-vision-edge-ai-en" },
-    { key: "8", imageSrc: require("@site/static/img/Partner/altera_w.png").default, url: "https://go.altera.com/l/1090322/2025-04-18/2vvzbn" },
   ]
 
   if (selectedJob) {
@@ -548,7 +541,7 @@ export default function CareersPage(): JSX.Element {
             </h2>
 
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6">
-              {featuredIn.map((item) => (
+              {FEATURED_IN.map((item) => (
                 <a
                   key={item.key}
                   href={item.url}
@@ -556,7 +549,7 @@ export default function CareersPage(): JSX.Element {
                   rel="noopener noreferrer"
                   className="w-32 sm:w-44 h-12 sm:h-16 bg-black overflow-hidden relative transition-all duration-300 hover:scale-110 hover:opacity-80 cursor-pointer"
                 >
-                  <img src={item.imageSrc} alt="" className="absolute inset-0 w-full h-full object-contain p-2" loading="lazy" />
+                  <img src={item.imageSrc} alt={item.alt} className="absolute inset-0 w-full h-full object-contain p-2" loading="lazy" />
                 </a>
               ))}
             </div>

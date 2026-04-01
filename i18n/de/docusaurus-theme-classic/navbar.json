@@ -111,6 +111,10 @@
     "message": "Preise",
     "description": "Navbar item with label Pricing"
   },
+  "item.label.Book Demo": {
+    "message": "Demo Buchen",
+    "description": "Navbar item with label Book Demo"
+  },
   "item.label.Open Source Program": {
     "message": "Open-Source-Programm",
     "description": "Navbar item with label Open Source Program"

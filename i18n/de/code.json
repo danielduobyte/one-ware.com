@@ -14,6 +14,69 @@
   "homehero.button.learnmore": {
     "message": "Mehr Erfahren"
   },
+  "homehero.button.bookdemo": {
+    "message": "Demo Buchen"
+  },
+  "bookdemo.meta.title": {
+    "message": "Kostenlose Onboarding-Session buchen"
+  },
+  "bookdemo.meta.description": {
+    "message": "Schneller zu produktionsreifen Vision-AI-Modellen kommen, ohne wochenlange Modellauswahl und Optimierung."
+  },
+  "bookdemo.eyebrow": {
+    "message": "Vision AI Onboarding"
+  },
+  "bookdemo.title": {
+    "message": "Kostenlose Onboarding-Session buchen"
+  },
+  "bookdemo.subtitle": {
+    "message": "Kommen Sie schneller zu produktionsreifen Vision-AI-Modellen, ohne wochenlange Modellauswahl und Optimierung"
+  },
+  "bookdemo.benefits.title": {
+    "message": "Das bekommen Sie"
+  },
+  "bookdemo.benefits.item.1": {
+    "message": "Identifizieren Sie, wo ONE WARE Ihnen helfen kann, mit demselben Team mehr Projekte umzusetzen"
+  },
+  "bookdemo.benefits.item.2": {
+    "message": "Entdecken Sie Anwendungsfälle, die bisher zu komplex, zu zeitaufwendig oder nicht realisierbar waren"
+  },
+  "bookdemo.benefits.item.3": {
+    "message": "Erfahren Sie, wie Sie in wenigen Minuten von der Projektidee zu produktionsreifer KI kommen"
+  },
+  "bookdemo.benefits.item.4": {
+    "message": "Erhalten Sie ein geführtes Onboarding für Ihre ersten Projekte"
+  },
+  "bookdemo.knownfrom": {
+    "message": "Bekannt aus"
+  },
+  "bookdemo.cta": {
+    "message": "Onboarding-Session buchen"
+  },
+  "bookdemo.form.title": {
+    "message": "Erzählen Sie uns von Ihrem Projekt"
+  },
+  "bookdemo.form.success.title": {
+    "message": "Nachricht erfolgreich gesendet!"
+  },
+  "bookdemo.form.success.description": {
+    "message": "Wir melden uns schnellstmöglich bei Ihnen."
+  },
+  "bookdemo.form.error": {
+    "message": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten."
+  },
+  "bookdemo.form.name": {
+    "message": "Name"
+  },
+  "bookdemo.form.email": {
+    "message": "E-Mail"
+  },
+  "bookdemo.form.message": {
+    "message": "Woran arbeiten Sie?"
+  },
+  "bookdemo.form.submit": {
+    "message": "Senden"
+  },
   "homehero.benefit.application": {
     "message": "Jede Anwendung"
   },

@@ -347,7 +347,7 @@ export default function Home() {
 
       <HomeHero />
       <main className="overflow-x-hidden alternative-background ">
-        <div className="default-background pb-12">
+        <div className="default-background">
           <HomeComparisonSection />
           <div id="video">
             <VideoShowcase />
@@ -356,11 +356,11 @@ export default function Home() {
           <OrbitIndustries />
         </div>
 
-        <div className="">
+        {/* <div className="">
           <HomepageFeatures />
-        </div>
+        </div> */}
 
-        <div className="default-background pt-20 pb-32">
+        <div className="default-background pb-32">
           <TestimonialsSection />
         </div>
 

@@ -163,12 +163,12 @@ const config: Config = {
           type: "dropdown",
           position: "left",
           label: "Products",
-          to: "/one-ai",
+          to: "/",
           activeBaseRegex: "(^.*/one-ai$)|(^.*/docs/one-ai/.*$)",
           className: "navbar__dropdown--products",
           items: [
             {
-              to: "/one-ai",
+              to: "/",
               label: "ONE AI",
               className: "dropdown__link--highlight",
             },
@@ -300,9 +300,10 @@ const config: Config = {
           position: 'right',
         },
         {
-          type: "html",
+          to: "/book-demo",
           position: "right",
-          value: `<a href="https://cloud.one-ware.com/Account/Login" class="button button--primary button--outline button--md font-bold navbarbutton loginbutton" style="display: inline-flex; align-items: center; gap: 6px;"><span class="login-button-text">Login</span><svg class="login-button-icon" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></a>`,
+          label: "Book Demo",
+          className: "button button--primary button--outline button--md font-bold navbarbutton loginbutton bookdemobutton",
         },
         {
           type: "html",

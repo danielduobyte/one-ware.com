@@ -315,7 +315,7 @@ export default function HomeHero() {
                   </button>
                 </Link>
                 <Link
-                  href="/one-ai"
+                  to="/book-demo"
                   style={{
                     animation: "fadeInUp 0.8s ease-out forwards",
                     animationDelay: "0.6s",
@@ -323,7 +323,7 @@ export default function HomeHero() {
                   }}
                 >
                   <button className="button button--primary button--outline button--lg">
-                    <Translate id="homehero.button.learnmore">Learn More</Translate>
+                    <Translate id="homehero.button.bookdemo">Book Demo</Translate>
                   </button>
                 </Link>
               </div>
@@ -376,7 +376,7 @@ export default function HomeHero() {
               </button>
             </Link>
             <Link
-              href="/one-ai"
+              to="/book-demo"
               style={{
                 animation: "fadeInUp 0.8s ease-out forwards",
                 animationDelay: "0.6s",
@@ -384,7 +384,7 @@ export default function HomeHero() {
               }}
             >
               <button className="button button--primary button--lg w-full sm:w-auto">
-                <Translate id="homehero.button.learnmore">Learn More</Translate>
+                <Translate id="homehero.button.bookdemo">Book Demo</Translate>
               </button>
             </Link>
             </div>

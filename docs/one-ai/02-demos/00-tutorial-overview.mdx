@@ -51,6 +51,29 @@ It compares a lightweight **YOLO26n baseline** with a **task-specific segmentati
   </Link>
 </div>
 
+## Lemon Detection
+[This demo](/docs/one-ai/demos/lemon-detection-demo) shows how to detect **ripe** and **unripe lemons** in a controlled production setup using a dataset generated from a single short smartphone video. It highlights how ONE AI can accelerate annotation by using an early model to pre-label the remaining frames and then compares the final custom detector against a YOLO baseline.
+
+<div style={{ marginBottom: '2rem' }}>
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    src="/img/ai/one_ai_plugin/demos/lemons/lemon_demo_web_bottom_half.mp4"
+    style={{ maxWidth: '80%', height: 'auto', display: 'block', margin: '0 auto', marginBottom: '5px' }}
+  />
+</div>
+
+<div className="text--center" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+  <Link className="button button--primary button--lg" href="/docs/one-ai/demos/lemon-detection-demo">
+    <p className="m-0 p-0">Check out Demo</p>
+  </Link>
+  <Link className="button button--primary button--lg" href="https://onewarecom.sharepoint.com/:u:/s/Public/IQBZ5f23Fx6NQZ1nqsjN5Nj0AY-RdfC_H7AtUY6wEmYa14M?e=BAOBjn" target="_blank" rel="noopener noreferrer">
+    <p className="m-0 p-0">Dataset</p>
+  </Link>
+</div>
+
 ## Person Tracking (Raspberry Pi)
 [This demo](/docs/one-ai/demos/person-tracking-raspberry-pi) compares UNet, DeepLabv3+, and a ONE AI custom CNN for person segmentation in a controlled environment. It focuses on achieving real-time CPU inference while keeping segmentation quality practical.
 
@@ -186,6 +209,21 @@ It compares a lightweight **YOLO26n baseline** with a **task-specific segmentati
   </Link>
   <Link className="button button--primary button--lg" href="https://github.com/one-ware/OneAI_demo_datasets/blob/main/projects/Wildfire.zip" target="_blank" rel="noopener noreferrer">
     <p className="m-0 p-0">Download Project</p>
+  </Link>
+</div>
+
+## Tumor Segmentation
+[This demo](/docs/one-ai/demos/brain-tumor-segmentation-demo) introduces semantic segmentation for medical imaging by highlighting tumor regions in MRI scans. It shows how a functional segmentation workflow can be trained with only **50 images**, using the **Medical** template and a compact, practical labeling and testing process in ONE AI.
+
+<div style={{ marginBottom: '2rem' }}>
+  <video autoPlay loop muted playsInline style={{ maxWidth: '80%', height: 'auto', display: 'block', margin: '0 auto', marginBottom: '5px' }}>
+    <source src={require('/img/ai/one_ai_plugin/demos/brain-tumor/segmentation_mask.webm').default} type="video/webm" />
+  </video>
+</div>
+
+<div className="text--center" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+  <Link className="button button--primary button--lg" href="/docs/one-ai/demos/brain-tumor-segmentation-demo">
+    <p className="m-0 p-0">Check out Demo</p>
   </Link>
 </div>
 

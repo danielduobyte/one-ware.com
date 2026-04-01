@@ -3,13 +3,19 @@ id: brain-tumor-segmentation-demo
 title: Brain Tumor Segmentation Demo
 sidebar_label: Segmentation (Brain Tumor)
 ---
+<<<<<<< HEAD
 
 import Link from '@docusaurus/Link';
 import SupportBanner from '@site/src/components/SupportBanner';
+=======
+import Link from '@docusaurus/Link';
+
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
 
 # Brain Tumor Segmentation Demo
 
 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+<<<<<<< HEAD
     <img src="/img/ai/one_ai_plugin/demos/brain-tumor/sample_1.jpg" alt="Brain MRI sample 1" style={{ width: '28%' }} />
     <img src="/img/ai/one_ai_plugin/demos/brain-tumor/sample_2.jpg" alt="Brain MRI sample 2" style={{ width: '28%' }} />
     <img src="/img/ai/one_ai_plugin/demos/brain-tumor/sample_3.jpg" alt="Brain MRI sample 3" style={{ width: '28%' }} />
@@ -22,12 +28,31 @@ To try this demo, click on the **Try Demo** button below. If you do not have an 
 <div className="text--center" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
   <Link className="button button--primary button--lg" href="https://cloud.one-ware.com/quick-start" target="_blank" rel="noopener noreferrer">
     <p className="m-0 p-0">Try Demo</p>
+=======
+    <img src="/img/ai/one_ai_plugin/demos/brain-tumor/sample_1.jpg" alt="chips_example_non-defective_01" style={{ width: '28%' }} />
+    <img src="/img/ai/one_ai_plugin/demos/brain-tumor/sample_2.jpg" alt="chips_example_non-defective_02" style={{ width: '28%' }} />
+    <img src="/img/ai/one_ai_plugin/demos/brain-tumor/sample_3.jpg" alt="chips_example_defective_01" style={{ width: '28%' }} />
+</div>
+
+
+:::info Try it yourself
+To try this demo, click on the **Try Demo** button below. If you don’t have an account yet, you will be prompted to sign up. After logging in, the quick start overview will open where you can select the **Raspberry Pi Warning Sign** project. Once installed, ONE WARE Studio will open automatically.
+:::
+
+<div className="text--center" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+  <Link className="button button--primary button--lg" href="oneware://oneai/quick-start/chips" target="_blank" rel="noopener noreferrer">
+    <p className="m-0 p-0">Download Project</p>
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
   </Link>
 </div>
 
 ## About this demo
 In this demo, we will build our first **segmentation model** using OneAI. Unlike classification or object detection, segmentation assigns a class label to **every individual pixel** of an image. This makes it particularly well suited for medical imaging tasks, such as identifying tumor regions in MRI scans.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
 The goal of this tutorial is to demonstrate how a brain tumor segmentation model can be trained using only **50 MRI images**. The focus is not on achieving state-of-the-art medical performance, but on showing how quickly and efficiently a segmentation workflow can be set up and trained with OneAI.
 
 By using the **Medical** template, we already benefit from meaningful default prefilter and augmentation settings that are well suited for medical imaging data.
@@ -60,15 +85,25 @@ If you want to annotate the images yourself, you can import the MRI images using
 
 For annotation you can use the following tools:
 
+<<<<<<< HEAD
 - **Colored Pencil** - used to directly mark tumor regions on the MRI images
 - **Eraser** - used to remove incorrect or imprecise annotations
 - **Brush Size Control** - adjust the brush size depending on tumor size and image resolution
 - **Opacity Control** - modify the opacity of the segmentation mask for better visibility
+=======
+- **Colored Pencil** – used to directly mark tumor regions on the MRI images  
+- **Eraser** – used to remove incorrect or imprecise annotations  
+- **Brush Size Control** – adjust the brush size depending on tumor size and image resolution  
+- **Opacity Control** – modify the opacity of the segmentation mask for better visibility  
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
 
 <video autoPlay loop muted playsInline style={{ maxWidth: '80%', height: 'auto', display: 'block', margin: '0 auto', marginBottom: '5px' }}>
   <source src={require('/img/ai/one_ai_plugin/demos/brain-tumor/segmentation_mask.webm').default} type="video/webm" />
 </video>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
 Carefully label the tumor regions on all 50 images. At this stage, **annotation quality is more important than speed**, as the overall segmentation performance strongly depends on precise masks.
 
 In a real medical scenario, this task should ideally be performed by a **domain expert** to ensure annotation accuracy.
@@ -83,12 +118,17 @@ Additional prefilters are generally not recommended, as they may remove subtle b
 The preset augmentations already fit this use case well, so we keep them unchanged. These augmentations simulate small variations in patient positioning and scanner setup while preserving the anatomical structure of the brain.
 
 ## Model settings
+<<<<<<< HEAD
 In medical applications, missing a tumor region is usually more critical than falsely detecting one. Therefore, we bias the model towards **higher recall** by setting the **precision-recall prioritization** to **75**.
+=======
+In medical applications, missing a tumor region is usually more critical than falsely detecting one. Therefore, we bias the model towards **higher recall** by setting the **precision–recall prioritization** to **75**.
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
 
 We apply the following model settings:
 
 - **Maximum Memory Usage:** **90** (sufficient for testing the model later on CPU)
 - **Estimated Surrounding (Min):** **10 / 10**
+<<<<<<< HEAD
 - **Estimated Surrounding (Max):** **30 / 30**
   These values correspond to the approximate size of the smallest and largest tumors in the dataset.
 - **Same Class Difference:** **25**
@@ -96,6 +136,15 @@ We apply the following model settings:
 - **Background Difference:** **25**
   MRI scans were taken from different angles, resulting in moderate background variation.
 - **Detection Simplicity:** **75**
+=======
+- **Estimated Surrounding (Max):** **30 / 30**  
+  These values correspond to the approximate size of the smallest and largest tumors in the dataset.
+- **Same Class Difference:** **25**  
+  Tumor appearances vary slightly but remain relatively consistent.
+- **Background Difference:** **25**  
+  MRI scans were taken from different angles, resulting in moderate background variation.
+- **Detection Simplicity:** **75**  
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb
   Overall, this is a relatively simple segmentation task.
 
 These settings help the model focus on local tumor structures while maintaining sufficient separation from the background.
@@ -119,4 +168,10 @@ The testing view allows you to visually inspect:
 
 This qualitative evaluation is especially important for segmentation tasks, where **spatial accuracy and mask quality** often matter more than a single numerical metric.
 
+<<<<<<< HEAD
 <SupportBanner subject="ONE AI Tutorial Support" />
+=======
+import SupportBanner from '@site/src/components/SupportBanner';
+
+<SupportBanner subject="ONE AI Tutorial Support" />
+>>>>>>> 404b1eccf3265034af5c8082c9f46fc67a823afb

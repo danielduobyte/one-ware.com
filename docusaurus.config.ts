@@ -76,6 +76,7 @@ const config: Config = {
     ['@docusaurus/plugin-client-redirects',
       {
         redirects: [
+          // ONE AI Documentation
           {
             from: '/one-ai/getting-started',
             to: '/docs/one-ai/getting-started/quick-start-guide',
@@ -84,6 +85,40 @@ const config: Config = {
             from: '/one-ai/choosing-parameters',
             to: '/docs/one-ai/getting-started/choosing-parameters-guide',
           },
+          // Quick Start Projects
+          {
+            from: '/projects/chips',
+            to: '/docs/one-ai/demos/potato-chip-demo',
+          },
+          {
+            from: '/projects/nist',
+            to: '/docs/one-ai/demos/handwritten-digits-demo',
+          },
+          {
+            from: '/projects/wildfire',
+            to: '/docs/one-ai/guides/wildfire-segmentation-guide',
+          },
+          {
+            from: '/projects/scratches',
+            to: '/docs/one-ai/demos/keychain-scratch-demo',
+          },
+          {
+            from: '/projects/dronesAndBirds',
+            to: '/docs/one-ai/demos/difference-image-demo',
+          },
+          {
+            from: '/projects/cups',
+            to: '/docs/one-ai/demos/teacup-print-detection',
+          },
+          {
+            from: '/projects/tennis',
+            to: '/docs/one-ai/demos/tennis-ball-demo',
+          },
+          {
+            from: '/projects/persons',
+            to: '/docs/one-ai/demos/person-tracking-raspberry-pi',
+          },
+          // Webinars
           {
             from: '/webinar-2025-11-27',
             to: '/docs/one-ai/Webinars/webinar-2025-11-27',

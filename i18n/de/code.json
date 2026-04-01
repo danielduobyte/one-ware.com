@@ -77,6 +77,21 @@
   "bookdemo.form.submit": {
     "message": "Senden"
   },
+  "docsbooking.eyebrow": {
+    "message": "Expertenhilfe gewünscht?"
+  },
+  "docsbooking.title": {
+    "message": "Kostenlose Onboarding-Session buchen"
+  },
+  "docsbooking.subtitle": {
+    "message": "Erhalten Sie geführte Unterstützung für Ihr erstes Vision-AI-Projekt und kommen Sie schneller zu einem produktionsreifen Setup."
+  },
+  "docsbooking.cta.book": {
+    "message": "Onboarding-Session buchen"
+  },
+  "docsbooking.cta.project": {
+    "message": "Projekt beschreiben"
+  },
   "homehero.benefit.application": {
     "message": "Jede Anwendung"
   },

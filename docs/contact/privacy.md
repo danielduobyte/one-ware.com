@@ -13,7 +13,7 @@ The responsible party in terms of data protection laws, in particular the EU Gen
 Annengasse 3  
 33034 Brakel  
 Germany  
-Phone: +49 176 63153144  
+Phone: +49 1522 6837464  
 Email: [info@one-ware.com](mailto:info@one-ware.com)  
 Website: [https://one-ware.com](https://one-ware.com)  
 Managing Directors: Leon Alexander Beier, Ali Durmaz  
@@ -367,7 +367,7 @@ ONE WARE GmbH
 Annengasse 3  
 33034 Brakel  
 Germany  
-Phone: +49 176 63153144  
+Phone: +49 1522 6837464  
 Email: [info@one-ware.com](mailto:info@one-ware.com)  
 Website: [https://one-ware.com](https://one-ware.com)  
 Managing Directors: Leon Alexander Beier, Ali Durmaz  

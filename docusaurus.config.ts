@@ -262,7 +262,7 @@ const config: Config = {
           className: "navbar__dropdown--developers",
           items: [
             {
-              to: "/docs/one-ai/documentation/overview",
+              to: "/docs",
               label: "Documentation",
             },
             {

@@ -28,3 +28,9 @@ $ npm run start -- --locale de
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Local Development using a VS Code Dev Container
+
+```
+$ npm run start:devContainer
+```

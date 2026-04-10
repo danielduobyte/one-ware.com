@@ -15,7 +15,8 @@
     "typecheck": "tsc",
     "build:fast": "cross-env BUILD_FAST=true docusaurus build --locale en",
     "start:baseUrl": "cross-env BASE_URL='/build/' docusaurus start",
-    "build:baseUrl": "cross-env BASE_URL='/build/' docusaurus build"
+    "build:baseUrl": "cross-env BASE_URL='/build/' docusaurus build",
+    "start:devContainer": "docusaurus start --host 0.0.0.0 --poll 5000"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",

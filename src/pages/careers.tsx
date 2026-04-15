@@ -155,24 +155,24 @@ export default function CareersPage(): JSX.Element {
       position: "Founders Associate",
       imageSrc: require("@site/static/img/AboutUs/default.png").default,
     },
-    {
-      key: "12",
-      name: "Till",
-      position: "Working Student - AI",
-      imageSrc: require("@site/static/img/AboutUs/default.png").default,
-    },
-    {
-      key: "13",
-      name: "Allen",
-      position: "Working Student - AI",
-      imageSrc: require("@site/static/img/AboutUs/Allen.jpg").default,
-    },
-    {
-      key: "14",
-      name: "Dominik",
-      position: "Working Student - Sales",
-      imageSrc: require("@site/static/img/AboutUs/default.png").default,
-    },
+    // {
+    //   key: "12",
+    //   name: "Till",
+    //   position: "Working Student - AI",
+    //   imageSrc: require("@site/static/img/AboutUs/default.png").default,
+    // },
+    // {
+    //   key: "13",
+    //   name: "Allen",
+    //   position: "Working Student - AI",
+    //   imageSrc: require("@site/static/img/AboutUs/Allen.jpg").default,
+    // },
+    // {
+    //   key: "14",
+    //   name: "Dominik",
+    //   position: "Working Student - Sales",
+    //   imageSrc: require("@site/static/img/AboutUs/default.png").default,
+    // },
     {
       key: "15",
       name: "Nele",
@@ -419,7 +419,7 @@ export default function CareersPage(): JSX.Element {
 
               <div className="flex flex-col items-center text-center md:items-start md:text-left">
                 <span className="text-[var(--ifm-color-primary)] text-2xl md:text-3xl font-normal">
-                  <Translate id="careers.facts.stat3.value">15</Translate>
+                  <Translate id="careers.facts.stat3.value">12</Translate>
                 </span>
                 <span className="text-gray-400 text-xs uppercase mt-1">
                   <Translate id="careers.facts.stat3.label">Employees</Translate>

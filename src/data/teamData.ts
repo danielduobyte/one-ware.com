@@ -84,27 +84,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
     linkedIn: "",
     email: "info@one-ware.com",
   },
-  // {
-  //   name: "Till",
-  //   role: "Working Student - AI",
-  //   image: require("@site/static/img/AboutUs/default.png").default,
-  //   linkedIn: "",
-  //   email: "support@one-ware.com",
-  // },
-  // {
-  //   name: "Allen",
-  //   role: "Working Student - AI",
-  //   image: require("@site/static/img/AboutUs/Allen.jpg").default,
-  //   linkedIn: "",
-  //   email: "support@one-ware.com",
-  // },
-  // {
-  //   name: "Dominik",
-  //   role: "Working Student - Sales",
-  //   image: require("@site/static/img/AboutUs/default.png").default,
-  //   linkedIn: "",
-  //   email: "sales@one-ware.com",
-  // },
   {
     name: "Nele",
     role: "Working Student - Marketing",

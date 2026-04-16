@@ -155,26 +155,8 @@ export default function CareersPage(): JSX.Element {
       position: "Founders Associate",
       imageSrc: require("@site/static/img/AboutUs/default.png").default,
     },
-    // {
-    //   key: "12",
-    //   name: "Till",
-    //   position: "Working Student - AI",
-    //   imageSrc: require("@site/static/img/AboutUs/default.png").default,
-    // },
-    // {
-    //   key: "13",
-    //   name: "Allen",
-    //   position: "Working Student - AI",
-    //   imageSrc: require("@site/static/img/AboutUs/Allen.jpg").default,
-    // },
-    // {
-    //   key: "14",
-    //   name: "Dominik",
-    //   position: "Working Student - Sales",
-    //   imageSrc: require("@site/static/img/AboutUs/default.png").default,
-    // },
     {
-      key: "15",
+      key: "12",
       name: "Nele",
       position: "Working Student - Marketing",
       imageSrc: require("@site/static/img/AboutUs/default.png").default,

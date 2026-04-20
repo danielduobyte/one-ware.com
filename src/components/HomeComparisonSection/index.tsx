@@ -1,31 +1,68 @@
 import React, { useEffect, useState } from "react";
 import Translate from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import { useColorMode } from "@docusaurus/theme-common";
 
-function useTheme() {
-  const { colorMode } = useColorMode();
-  const isDark = colorMode === "dark";
-  return {
-    isDark,
-    accent: isDark ? "#00FFD1" : "#00A88A",
-    accentSoft: isDark ? "rgba(0, 255, 209, 0.10)" : "rgba(0, 168, 138, 0.10)",
-    accentBorder: isDark ? "rgba(0, 255, 209, 0.35)" : "rgba(0, 168, 138, 0.35)",
-    accentGlow: isDark ? "0 20px 60px rgba(0, 255, 209, 0.14)" : "0 20px 60px rgba(0, 168, 138, 0.14)",
-    cardBg: isDark ? "rgba(22, 22, 22, 0.85)" : "rgba(255, 255, 255, 0.95)",
-    cardBorder: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
-    cardShadow: isDark ? "0 18px 40px rgba(0, 0, 0, 0.28)" : "0 18px 40px rgba(15, 23, 42, 0.06)",
-    innerBg: isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(0, 0, 0, 0.025)",
-    innerBorder: isDark ? "rgba(255, 255, 255, 0.06)" : "rgba(0, 0, 0, 0.06)",
-    title: isDark ? "#F8FAFC" : "#111827",
-    body: isDark ? "#E2E8F0" : "#1F2937",
-    muted: isDark ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)",
-    subtle: isDark ? "rgba(255, 255, 255, 0.38)" : "rgba(0, 0, 0, 0.42)",
-    circleIdleBg: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.06)",
-    circleActiveText: isDark ? "#0A0A0A" : "#FFFFFF",
-    videoBg: isDark ? "rgba(0, 0, 0, 0.3)" : "rgba(0, 0, 0, 0.03)",
-  };
-}
+const vars = {
+  accent: "var(--hcs-accent)",
+  accentSoft: "var(--hcs-accent-soft)",
+  accentBorder: "var(--hcs-accent-border)",
+  accentGlow: "var(--hcs-accent-glow)",
+  cardBg: "var(--hcs-card-bg)",
+  cardBorder: "var(--hcs-card-border)",
+  cardShadow: "var(--hcs-card-shadow)",
+  innerBg: "var(--hcs-inner-bg)",
+  innerBorder: "var(--hcs-inner-border)",
+  title: "var(--hcs-title)",
+  body: "var(--hcs-body)",
+  muted: "var(--hcs-muted)",
+  subtle: "var(--hcs-subtle)",
+  circleIdleBg: "var(--hcs-circle-idle-bg)",
+  circleActiveText: "var(--hcs-circle-active-text)",
+  videoBg: "var(--hcs-video-bg)",
+};
+
+const THEME_STYLES = `
+  .hcs-root {
+    --hcs-accent: #00A88A;
+    --hcs-accent-soft: rgba(0, 168, 138, 0.10);
+    --hcs-accent-border: rgba(0, 168, 138, 0.35);
+    --hcs-accent-glow: 0 20px 60px rgba(0, 168, 138, 0.14);
+    --hcs-card-bg: rgba(255, 255, 255, 0.95);
+    --hcs-card-border: rgba(0, 0, 0, 0.08);
+    --hcs-card-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    --hcs-inner-bg: rgba(0, 0, 0, 0.025);
+    --hcs-inner-border: rgba(0, 0, 0, 0.06);
+    --hcs-title: #111827;
+    --hcs-body: #1F2937;
+    --hcs-muted: rgba(0, 0, 0, 0.5);
+    --hcs-subtle: rgba(0, 0, 0, 0.42);
+    --hcs-circle-idle-bg: rgba(0, 0, 0, 0.06);
+    --hcs-circle-active-text: #FFFFFF;
+    --hcs-video-bg: rgba(0, 0, 0, 0.03);
+  }
+  [data-theme="dark"] .hcs-root {
+    --hcs-accent: #00FFD1;
+    --hcs-accent-soft: rgba(0, 255, 209, 0.10);
+    --hcs-accent-border: rgba(0, 255, 209, 0.35);
+    --hcs-accent-glow: 0 20px 60px rgba(0, 255, 209, 0.14);
+    --hcs-card-bg: rgba(22, 22, 22, 0.85);
+    --hcs-card-border: rgba(255, 255, 255, 0.08);
+    --hcs-card-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    --hcs-inner-bg: rgba(255, 255, 255, 0.03);
+    --hcs-inner-border: rgba(255, 255, 255, 0.06);
+    --hcs-title: #F8FAFC;
+    --hcs-body: #E2E8F0;
+    --hcs-muted: rgba(255, 255, 255, 0.5);
+    --hcs-subtle: rgba(255, 255, 255, 0.38);
+    --hcs-circle-idle-bg: rgba(255, 255, 255, 0.08);
+    --hcs-circle-active-text: #0A0A0A;
+    --hcs-video-bg: rgba(0, 0, 0, 0.3);
+  }
+  @keyframes hcs-pulse {
+    0%, 100% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.9); opacity: 0.35; }
+  }
+`;
 
 function SectionCard({
   title,
@@ -38,16 +75,14 @@ function SectionCard({
   highlight?: boolean;
   children: React.ReactNode;
 }) {
-  const t = useTheme();
-
   return (
     <div
       className="relative h-full flex flex-col overflow-hidden transition-all duration-300"
       style={{
-        background: t.cardBg,
-        border: `1px solid ${highlight ? t.accentBorder : t.cardBorder}`,
+        background: vars.cardBg,
+        border: `1px solid ${highlight ? vars.accentBorder : vars.cardBorder}`,
         borderRadius: 24,
-        boxShadow: highlight ? t.accentGlow : t.cardShadow,
+        boxShadow: highlight ? vars.accentGlow : vars.cardShadow,
       }}
     >
       {highlight && (
@@ -55,7 +90,7 @@ function SectionCard({
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-[2px]"
           style={{
-            background: `linear-gradient(180deg, transparent 0%, ${t.accent} 40%, ${t.accent} 60%, transparent 100%)`,
+            background: `linear-gradient(180deg, transparent 0%, ${vars.accent} 40%, ${vars.accent} 60%, transparent 100%)`,
             opacity: 0.9,
           }}
         />
@@ -63,13 +98,13 @@ function SectionCard({
       <div className="flex h-full flex-col p-6 md:p-8 lg:p-10">
         <div
           className="mb-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.22em]"
-          style={{ color: highlight ? t.accent : t.subtle }}
+          style={{ color: highlight ? vars.accent : vars.subtle }}
         >
           {eyebrow}
         </div>
         <h3
           className="mb-7 md:mb-9 text-center text-[1.35rem] md:text-[1.55rem] lg:text-[1.7rem] font-semibold leading-tight"
-          style={{ color: t.title, letterSpacing: "-0.015em" }}
+          style={{ color: vars.title, letterSpacing: "-0.015em" }}
         >
           {title}
         </h3>
@@ -92,15 +127,14 @@ function StepPill({
   completed?: boolean;
   pulse?: boolean;
 }) {
-  const t = useTheme();
   const highlighted = active || completed;
 
   return (
     <div
       className="flex items-center gap-3 md:gap-4 px-4 py-3 md:px-5 md:py-3.5"
       style={{
-        background: highlighted ? t.accentSoft : t.innerBg,
-        border: `1px solid ${highlighted ? t.accentBorder : t.innerBorder}`,
+        background: highlighted ? vars.accentSoft : vars.innerBg,
+        border: `1px solid ${highlighted ? vars.accentBorder : vars.innerBorder}`,
         borderRadius: 14,
         transition: "background 300ms ease, border-color 300ms ease, transform 300ms ease",
         transform: active ? "translateX(3px)" : "translateX(0)",
@@ -112,8 +146,8 @@ function StepPill({
           width: 28,
           height: 28,
           borderRadius: 999,
-          background: highlighted ? t.accent : t.circleIdleBg,
-          color: highlighted ? t.circleActiveText : t.muted,
+          background: highlighted ? vars.accent : vars.circleIdleBg,
+          color: highlighted ? vars.circleActiveText : vars.muted,
           transition: "background 300ms ease, color 300ms ease",
         }}
       >
@@ -122,7 +156,7 @@ function StepPill({
             aria-hidden="true"
             className="absolute inset-0 rounded-full"
             style={{
-              background: t.accent,
+              background: vars.accent,
               animation: "hcs-pulse 2.4s ease-in-out infinite",
             }}
           />
@@ -132,10 +166,10 @@ function StepPill({
             <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path
                 d="M2 6L5 9L10 3"
-                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                style={{ stroke: "currentColor" }}
               />
             </svg>
           ) : (
@@ -145,7 +179,7 @@ function StepPill({
       </div>
       <div
         className="text-sm md:text-[0.95rem] font-medium leading-snug"
-        style={{ color: t.body }}
+        style={{ color: vars.body }}
       >
         {children}
       </div>
@@ -154,17 +188,18 @@ function StepPill({
 }
 
 function Connector({ active = false }: { active?: boolean }) {
-  const t = useTheme();
   return (
     <div className="flex items-center justify-center py-1">
       <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true">
         <path
           d="M7 2V13M7 13L2 9M7 13L12 9"
-          stroke={active ? t.accent : t.muted}
           strokeWidth="1.75"
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ transition: "stroke 300ms ease, opacity 300ms ease" }}
+          style={{
+            stroke: active ? vars.accent : vars.muted,
+            transition: "stroke 300ms ease, opacity 300ms ease",
+          }}
           opacity={active ? 1 : 0.55}
         />
       </svg>
@@ -173,9 +208,6 @@ function Connector({ active = false }: { active?: boolean }) {
 }
 
 function LoopBack({ active = false }: { active?: boolean }) {
-  const t = useTheme();
-  const stroke = t.accent;
-
   return (
     <div
       className="pointer-events-none absolute inset-y-2 right-0 w-[28px] md:w-[36px]"
@@ -189,7 +221,6 @@ function LoopBack({ active = false }: { active?: boolean }) {
       >
         <path
           d="M4 254 C 20 254 30 244 30 224 V 56 C 30 36 20 26 4 26"
-          stroke={stroke}
           strokeWidth="1.75"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -199,6 +230,7 @@ function LoopBack({ active = false }: { active?: boolean }) {
           strokeDasharray="1.05 1.05"
           strokeDashoffset={active ? 0 : 1.05}
           style={{
+            stroke: vars.accent,
             opacity: active ? 1 : 0,
             transition: active
               ? "stroke-dashoffset 750ms cubic-bezier(0.4, 0, 0.2, 1), opacity 140ms ease-out"
@@ -219,12 +251,12 @@ function LoopBack({ active = false }: { active?: boolean }) {
       >
         <path
           d="M9 1.5 L 2.5 7 L 9 12.5"
-          stroke={stroke}
           strokeWidth="1.75"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
           style={{
+            stroke: vars.accent,
             opacity: active ? 1 : 0,
             transform: active ? "translateX(0)" : "translateX(4px)",
             transition: active
@@ -292,13 +324,12 @@ function VideoFrame({
   title: string;
   objectPosition?: string;
 }) {
-  const t = useTheme();
   return (
     <div
       className="w-full overflow-hidden"
       style={{
-        background: t.videoBg,
-        border: `1px solid ${t.innerBorder}`,
+        background: vars.videoBg,
+        border: `1px solid ${vars.innerBorder}`,
         borderRadius: 16,
       }}
     >
@@ -320,15 +351,13 @@ function VideoFrame({
 }
 
 function VsBadge() {
-  const t = useTheme();
-
   const label = (
     <span
       className="select-none font-semibold"
       style={{
         fontSize: "0.72rem",
         letterSpacing: "0.28em",
-        color: t.subtle,
+        color: vars.subtle,
       }}
     >
       VS
@@ -340,7 +369,7 @@ function VsBadge() {
       aria-hidden="true"
       className="h-px w-12"
       style={{
-        background: `linear-gradient(to right, transparent, ${t.innerBorder} 50%, transparent)`,
+        background: `linear-gradient(to right, transparent, ${vars.innerBorder} 50%, transparent)`,
       }}
     />
   );
@@ -350,7 +379,7 @@ function VsBadge() {
       aria-hidden="true"
       className="h-12 w-px"
       style={{
-        background: `linear-gradient(to bottom, transparent, ${t.innerBorder} 50%, transparent)`,
+        background: `linear-gradient(to bottom, transparent, ${vars.innerBorder} 50%, transparent)`,
       }}
     />
   );
@@ -399,13 +428,8 @@ export default function HomeComparisonSection() {
   const oneAiPoster = useBaseUrl("/img/demos/screenshot_scratch.png");
 
   return (
-    <section className="pt-12 pb-4 md:pt-16 md:pb-6 lg:pt-20 lg:pb-8">
-      <style>{`
-        @keyframes hcs-pulse {
-          0%, 100% { transform: scale(1); opacity: 0; }
-          50% { transform: scale(1.9); opacity: 0.35; }
-        }
-      `}</style>
+    <section className="hcs-root pt-12 pb-4 md:pt-16 md:pb-6 lg:pt-20 lg:pb-8">
+      <style>{THEME_STYLES}</style>
       <div className="mx-auto w-full max-w-[88rem] px-3 md:px-4 lg:px-6">
         <div className="grid w-full grid-cols-1 items-stretch gap-4 xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] xl:gap-6">
           <SectionCard
